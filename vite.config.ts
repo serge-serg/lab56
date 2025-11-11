@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig(({ mode }) => ({
-  base: "/frontend",
+  base: mode === "development" ? "/frontend" : "/lab56/",
   server: {
     host: true,
     port: 3000,
@@ -25,14 +25,14 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "Lab5 App",
         short_name: "Lab5",
-        start_url: mode === 'development' ? "/" : "/lab56/",
-        scope: mode === 'development' ? "/" : "/lab56/",
+        start_url: mode === "development" ? "/frontend" : "/lab56/",
+        scope: mode === "development" ? "/frontend" : "/lab56/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#0d6efd",
         icons: [
-          { src: "/pwa-192.png", sizes: "192x192", type: "image/png" },
-          { src: "/pwa-512.png", sizes: "512x512", type: "image/png" },
+          { src: "pwa-192.png", sizes: "192x192", type: "image/png" },
+          { src: "pwa-512.png", sizes: "512x512", type: "image/png" },
         ],
       },
     }),
