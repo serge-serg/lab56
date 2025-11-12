@@ -92,9 +92,9 @@ const TariffsListPage = ({
           </Form>
         </Col>
       </Row>
-      <Row>
+      <Row className="g-3">
         {tariffs?.map((tariff) => (
-          <Col key={tariff.id} xs="4">
+          <Col key={tariff.id} xs="12" sm="6" md="6" lg="4" xl="3">
             <TariffCard tariff={tariff} isMock={isMock} />
           </Col>
         ))}

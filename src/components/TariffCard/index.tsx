@@ -2,6 +2,7 @@ import {Button, Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
 import mockImage from "assets/mock.png";
 import {Link} from "react-router-dom";
 import {T_Tariff} from "modules/types.ts";
+import './styles.css'
 
 interface TariffCardProps {
     tariff: T_Tariff,
@@ -10,10 +11,10 @@ interface TariffCardProps {
 
 const TariffCard = ({tariff, isMock}: TariffCardProps) => {
     return (
-        <Card key={tariff.id} style={{width: '18rem', margin: "0 auto 50px", height: "calc(100% - 50px)" }}>
+        <Card key={tariff.id}>
             <CardImg
                 src={isMock ? mockImage as string : tariff.image}
-                style={{"height": "200px"}}
+                //style={{"height": "200px"}}
             />
             <CardBody className="d-flex flex-column justify-content-between">
                 <CardTitle tag="h5">
