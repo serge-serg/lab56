@@ -42,11 +42,7 @@ const TariffPage = ({selectedTariff, setSelectedTariff, isMock, setIsMock}: Prop
     }, []);
 
     if (!selectedTariff) {
-        return (
-            <div>
-
-            </div>
-        )
+        return null
     }
 
     return (
