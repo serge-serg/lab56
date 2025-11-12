@@ -30,3 +30,15 @@
     color: var(--card-text) !important;
     border-color: var(--card-border-color) !important;
 }
+
+.relative {
+    position: relative;
+}
+
+#clear-search {
+    border: none;
+    position: absolute;
+    right: 22px;
+    top: 6px;
+    cursor: pointer;
+}

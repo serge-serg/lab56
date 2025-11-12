@@ -74,12 +74,14 @@ const TariffsListPage = ({
         <Col md="6">
           <Form onSubmit={handleSubmit}>
             <Row>
-              <Col md="8">
+              <Col className="relative" md="8">
                 <Input
+                  name="search"
                   value={tariffName}
                   onChange={(e) => filterTariffs(e.target.value)}
                   placeholder="Поиск..."
                 ></Input>
+                {tariffName && <button onClick={() => setTariffName("")} id="clear-search">🗙</button>}
               </Col>
               <Col>
                 <Button color="primary" className="w-100 search-btn">
