@@ -12,7 +12,6 @@ interface Props {
 const Breadcrumbs = ({ selectedTariff }: Props) => {
   const location = useLocation();
 
-
   const paths = location.pathname === "/" ? [""] : location.pathname.split("/");
 
   const getBreadCrumb = (segment: string) => {
@@ -21,6 +20,10 @@ const Breadcrumbs = ({ selectedTariff }: Props) => {
         activeLink: "/",
         activePage: "Главная",
       };
+    }
+    
+    if (paths.length > 1 && segment === "") {
+      return null;
     }
 
     const activeSegment = navData.find((e) => e.link === `/${segment}`);
@@ -35,10 +38,12 @@ const Breadcrumbs = ({ selectedTariff }: Props) => {
     <Breadcrumb className="fs-5">
       {paths.map((segment, index) => {
         if (index === 2) {
-			// возвращаем неразрывный пробел, чтобы он занял место перед слэшем в breadcrumbs на стр. выбранного тарифа
-			return <>&nbsp;</>;
-		}
+          // возвращаем неразрывный пробел, чтобы он занял место перед слэшем в breadcrumbs на стр. выбранного тарифа
+          return <>&nbsp;</>;
+        }
         const activeData = getBreadCrumb(segment);
+
+        if (!activeData) return null;
 
         return (
           <BreadcrumbItem key={index}>
